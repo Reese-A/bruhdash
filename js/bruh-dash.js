@@ -10,48 +10,60 @@ var global = window || GLOBAL;
 global.bruhdash = {
 
   // returns the first element of an array
-  first: function () {
-      
+  first: function (arr) {
+    return arr[0];
   },
 
   // returns the last element of an array
-  last: function () {
+  last: function (arr) {
+    return arr[arr.length - 1];
 
   },
 
   // returns the index of the first matching element from left to right
-  indexOf: function () {
+  indexOf: function (arr, item) {
+    return arr.indexOf(item);
 
   },
 
   // returns the index of the first matching element from right to left
-  lastIndexOf: function () {
+  lastIndexOf: function (arr, item) {
+    return arr.lastIndexOf(item);
 
   },
 
   // returns an array with all elements except for the last element
-  initial: function () {
-
+  initial: function (arr) {
+    arr.pop();
+    return arr;
   },
   
   // returns an array with all falsey values removed
-  compact: function() {
-
+  compact: function(arr) {
+    return arr.filter(function(v) { return !!v; });
   },
 
   // creates a slice of an array from the start index up to but not including the end index
-  slice: function () {
-
+  slice: function (arr, num1, num2) {
+    var result = arr.slice(num1, num2);
+    return result;
   },
 
   // returns a slice of array with n elements dropped from the beignning
-  drop: function(){
-
+  drop: function(arr, n){
+    if(n = 0){
+      return arr;
+    }else{
+      if(n > 0){
+        var end = n+1;
+        return arr.slice(0, end);
+      }
+    }
   },
 
   // returns a slice of array with n elements dropped from the end
-  dropRight: function() {
-
+  dropRight: function(arr, n) {
+ 
   },
 
   // creates a slice of an array with n elements taken from the beginning
